@@ -24,7 +24,6 @@ export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
 
 PATH=~/.console-ninja/.bin:$PATH
-eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
