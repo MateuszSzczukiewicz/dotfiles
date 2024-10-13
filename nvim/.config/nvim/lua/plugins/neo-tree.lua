@@ -23,8 +23,16 @@ return {
 				buffers = {
 					close_if_last_window = true,
 				},
-				hijack_netrw_behavior = "open_current",
+				window = {
+					mappings = {
+						["h"] = "close_node",
+						["l"] = "open",
+					},
+				},
 			},
+  buffers = {
+    close_if_last_window = true,
+  },
 		})
 	end,
 }

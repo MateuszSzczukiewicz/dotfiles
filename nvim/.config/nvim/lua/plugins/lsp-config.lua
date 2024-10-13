@@ -20,6 +20,7 @@ return {
 					"yamlls",
 					"html",
 					"tailwindcss",
+          "pylsp",
 				},
 				automatic_installation = true,
 			})
@@ -51,6 +52,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
 

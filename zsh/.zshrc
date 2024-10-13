@@ -20,9 +20,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-export XCURSOR_THEME=Bibata-Modern-Classic
-export XCURSOR_SIZE=24
-
 PATH=~/.console-ninja/.bin:$PATH
 eval "$(zoxide init zsh)"
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
