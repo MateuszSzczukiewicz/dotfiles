@@ -11,10 +11,16 @@ return {
 		treesitter.setup({
 			highlight = {
 				enable = true,
+				disable = { "c", "rust" }, -- Wyłącz dla wybranych języków
+				additional_vim_regex_highlighting = false,
 			},
-			indent = { enable = true },
+			indent = {
+				enable = true,
+				disable = { "python", "html" }, -- Wyłącz wcięcia dla niektórych języków
+			},
 			autotag = {
 				enable = true,
+				filetypes = { "html", "xml", "vue", "typescriptreact", "javascriptreact", "svelte" },
 			},
 			ensure_installed = {
 				"json",
@@ -40,13 +46,14 @@ return {
 				"vimdoc",
 				"c",
 			},
+			auto_install = true, -- Automatyczne instalowanie brakujących parserów
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
+					init_selection = "gnn",
+					node_incremental = "grn",
+					scope_incremental = "grc",
+					node_decremental = "grm",
 				},
 			},
 		})

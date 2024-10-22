@@ -1,73 +1,69 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "rose-pine/neovim", "folke/tokyonight.nvim" },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
 
-    local colors = {
-      blue = "#65D1FF",
-      green = "#3EFFDC",
-      violet = "#FF61EF",
-      yellow = "#FFDA7B",
-      red = "#FF4A4A",
-      fg = "#c3ccdc",
-      bg = "#112638",
-      inactive_bg = "#2c3043",
-    }
+    local rose_pine = require('rose-pine.palette')
 
     local my_lualine_theme = {
       normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = rose_pine.love, fg = rose_pine.base, gui = "bold" },
+        b = { bg = rose_pine.base, fg = rose_pine.text },
+        c = { bg = rose_pine.surface, fg = rose_pine.text },
       },
       insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = rose_pine.iris, fg = rose_pine.base, gui = "bold" },
+        b = { bg = rose_pine.base, fg = rose_pine.text },
+        c = { bg = rose_pine.surface, fg = rose_pine.text },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = rose_pine.foam, fg = rose_pine.base, gui = "bold" },
+        b = { bg = rose_pine.base, fg = rose_pine.text },
+        c = { bg = rose_pine.surface, fg = rose_pine.text },
       },
       command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = rose_pine.gold, fg = rose_pine.base, gui = "bold" },
+        b = { bg = rose_pine.base, fg = rose_pine.text },
+        c = { bg = rose_pine.surface, fg = rose_pine.text },
       },
       replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = rose_pine.love, fg = rose_pine.base, gui = "bold" },
+        b = { bg = rose_pine.base, fg = rose_pine.text },
+        c = { bg = rose_pine.surface, fg = rose_pine.text },
       },
       inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        a = { bg = rose_pine.overlay, fg = rose_pine.subtle, gui = "bold" },
+        b = { bg = rose_pine.overlay, fg = rose_pine.subtle },
+        c = { bg = rose_pine.overlay, fg = rose_pine.subtle },
       },
     }
 
     lualine.setup({
-          lualine_a = {
-      { nixos_icon, color = { fg = colors.blue, gui = "bold" } }
-    },
       options = {
         theme = my_lualine_theme,
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_x = {
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
-          },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
-        },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { lazy_status.updates },
+        lualine_z = { 'progress', 'location' },
       },
+      inactive_sections = {
+        lualine_a = { 'filename' },
+        lualine_b = {},
+        lualine_c = { 'location' },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
+      tabline = {},
+      extensions = {}
     })
   end,
 }

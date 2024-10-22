@@ -13,7 +13,7 @@ return {
 			vue = { "eslint_d" },
 			python = { "pylint" },
 			nix = { "nix" },
-      lua = { "selene" },
+      -- lua = { "selene" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
