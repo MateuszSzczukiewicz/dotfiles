@@ -11,12 +11,11 @@ return {
 		treesitter.setup({
 			highlight = {
 				enable = true,
-				disable = { "c", "rust" }, -- Wyłącz dla wybranych języków
 				additional_vim_regex_highlighting = false,
 			},
 			indent = {
 				enable = true,
-				disable = { "python", "html" }, -- Wyłącz wcięcia dla niektórych języków
+				disable = { "python", "html" },
 			},
 			autotag = {
 				enable = true,
@@ -45,8 +44,12 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"go",
+				"gomod",
+				"gowork",
+				"gosum",
 			},
-			auto_install = true, -- Automatyczne instalowanie brakujących parserów
+			auto_install = true,
 			incremental_selection = {
 				enable = true,
 				keymaps = {

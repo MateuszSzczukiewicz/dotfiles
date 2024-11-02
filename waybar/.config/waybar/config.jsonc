@@ -11,7 +11,9 @@
     "custom/right-component-separator",
     "pulseaudio",
     "custom/right-component-separator",
-    "clock"
+    "clock#date",
+    "custom/right-component-separator",
+    "clock#time"
   ],
   "hyprland/workspaces": {
     "format": "{name}"
@@ -32,8 +34,12 @@
       ]
     }
   },
-  "clock": {
-    "format": "<span>  </span>{:%a %d.%m %H:%M}"
+  "clock#time": {
+    "format": "<span>  </span>{:%H:%M}",
+    "tooltip": "false"
+  },
+  "clock#date": {
+    "format": "<span>󰃭 </span>{:%a %d.%m}"
   },
   "custom/right-section-separator": {
     "format": ""

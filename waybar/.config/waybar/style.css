@@ -42,11 +42,26 @@ button:hover {
   background-color: @overlay;
 }
 
+#network {
+  color: @gold;
+}
+
+#pulseaudio {
+  color: @rose;
+}
+
+#clock, #date {
+  color: @pine;
+}
+
+#time {
+  color: @foam;
+}
+
 #network,
 #pulseaudio,
 #clock {
   background-color: @overlay;
-  color: @text;
   padding: 0 10px;
 }
 

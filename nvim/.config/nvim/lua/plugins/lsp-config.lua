@@ -20,7 +20,8 @@ return {
 					"yamlls",
 					"html",
 					"tailwindcss",
-          "pylsp",
+					"pylsp",
+					"gopls",
 				},
 				automatic_installation = true,
 			})
@@ -37,6 +38,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.emmet_ls.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.jsonls.setup({
@@ -56,6 +60,12 @@ return {
 			})
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				cmd = { "gopls" },
+				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
