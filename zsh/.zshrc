@@ -17,6 +17,8 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -61,6 +63,7 @@ _fzf_comprun() {
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(thefuck --alias fk)"
+eval "$(tmuxifier init -)"
 
 alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions -all"
 
