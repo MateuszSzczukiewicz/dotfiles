@@ -6,6 +6,7 @@
     "custom/left-section-separator"
   ],
   "modules-right": [
+    "custom/right-section-separator",
     "network",
     "pulseaudio",
     "clock#date",
@@ -38,6 +39,9 @@
   "clock#date": {
     "format": "<span>󰃭 </span>{:%a %d.%m}",
     "tooltip": "false"
+  },
+  "custom/left-section-separator": {
+    "format": ""
   },
   "custom/right-section-separator": {
     "format": ""
