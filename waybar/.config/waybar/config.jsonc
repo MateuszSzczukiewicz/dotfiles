@@ -6,13 +6,9 @@
     "custom/left-section-separator"
   ],
   "modules-right": [
-    "custom/right-section-separator",
     "network",
-    "custom/right-component-separator",
     "pulseaudio",
-    "custom/right-component-separator",
     "clock#date",
-    "custom/right-component-separator",
     "clock#time"
   ],
   "hyprland/workspaces": {
@@ -21,7 +17,8 @@
   "network": {
     "format-wifi": "<span size='13000'>  </span>{essid}",
     "format-ethernet": "<span size='13000'>󰤭  </span> Disconnected",
-    "format-disconnected": "<span size='13000'> </span>Disconnected"
+    "format-disconnected": "<span size='13000'> </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -36,18 +33,13 @@
   },
   "clock#time": {
     "format": "<span>  </span>{:%H:%M}",
-    "tooltip": "false"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "clock#date": {
-    "format": "<span>󰃭 </span>{:%a %d.%m}"
+    "format": "<span>󰃭 </span>{:%a %d.%m}",
+    "tooltip": "false"
   },
   "custom/right-section-separator": {
     "format": ""
-  },
-  "custom/left-section-separator": {
-    "format": ""
-  },
-  "custom/right-component-separator": {
-    "format": ""
   }
 }
