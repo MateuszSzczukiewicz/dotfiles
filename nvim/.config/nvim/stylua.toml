@@ -1,0 +1,14 @@
+indent_width = 2
+indent_type = "Spaces"
+
+quote_style = "AutoPreferSingle"
+
+column_width = 120
+
+exclude = [
+  "lazy/lazy.nvim",
+]
+
+align_array_table = true
+align_parameter = true
+align_function_define = true

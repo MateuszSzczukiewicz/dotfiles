@@ -10,29 +10,60 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local transform_mod = require("telescope.actions.mt").transform_mod
-
-		local trouble = require("trouble")
 		local trouble_telescope = require("trouble.sources.telescope")
-
-		local custom_actions = transform_mod({
-			open_trouble_qflist = function(prompt_bufnr)
-				trouble.toggle("quickfix")
-			end,
-		})
 
 		telescope.setup({
 			defaults = {
-				file_ignore_patterns = {},
+				file_ignore_patterns = {
+					"node_modules",
+					".git",
+					"__pycache__",
+					"%.lock",
+					"%.pdb",
+					"%.dll",
+					"%.class",
+					"%.exe",
+					"%.cache",
+					"%.ico",
+					"%.dylib",
+					"%.bin",
+					"%.bak",
+					"%.webp",
+					"%.so",
+					".git/",
+					".gradle/",
+					".idea/",
+					".settings/",
+					"target/",
+					"vendor/",
+					"env/",
+					"venv/",
+					"%.pyo",
+					"%.pyc",
+					"%.DS_Store",
+				},
 				hidden = true,
-				path_display = { "smart" },
+				path_display = { "truncate" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
-						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-t>"] = trouble_telescope.open,
 					},
+					n = {
+						["<C-t>"] = trouble_telescope.open,
+					},
+				},
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
+				},
+				live_grep = {
+					additional_args = function()
+						return { "--hidden" }
+					end,
 				},
 			},
 		})

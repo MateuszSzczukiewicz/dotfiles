@@ -6,29 +6,32 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				svelte = { "prettier" },
-				vue = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
-				graphql = { "prettier" },
-				liquid = { "prettier" },
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				typescriptreact = { "prettierd" },
+				svelte = { "prettierd" },
+				vue = { "prettierd" },
+				css = { "prettierd" },
+				html = { "prettierd" },
+				json = { "prettierd" },
+				yaml = { "prettierd" },
+				markdown = { "prettierd" },
+				graphql = { "prettierd" },
+				liquid = { "prettierd" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				nix = { "alejandra" },
 				go = { "goimports", "gofmt" },
-				-- gomod = { "goimports", "gofmt" },
 			},
+
 			format_on_save = {
+				enabled = true,
+				allow_filetypes = { "javascript", "typescript", "python", "go", "lua", "json" },
+				ignore_filetypes = { "markdown" },
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 3000,
+				timeout_ms = 2000,
 			},
 		})
 
@@ -36,8 +39,14 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = nil,
+				timeout_ms = 2000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
+
+		vim.keymap.set("n", "<leader>tf", function()
+			local enabled = not conform.get_option("format_on_save").enabled
+			conform.set_option("format_on_save", { enabled = enabled })
+			print("Format on save " .. (enabled and "enabled" or "disabled"))
+		end, { desc = "Toggle format on save" })
 	end,
 }

@@ -62,6 +62,6 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(thefuck --alias fk)"
 
-alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions -all"
 
 source ~/fzf-git.sh/fzf-git.sh
