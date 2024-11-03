@@ -11,27 +11,36 @@ return {
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
 				svelte = { "prettierd" },
-				vue = { "prettierd" },
+				vue = { "prettier" },
 				css = { "prettierd" },
 				html = { "prettierd" },
 				json = { "prettierd" },
 				yaml = { "prettierd" },
 				markdown = { "prettierd" },
 				graphql = { "prettierd" },
-				liquid = { "prettierd" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				nix = { "alejandra" },
 				go = { "goimports", "gofmt" },
 			},
-
 			format_on_save = {
 				enabled = true,
-				allow_filetypes = { "javascript", "typescript", "python", "go", "lua", "json" },
+				allow_filetypes = {
+					"javascript",
+					"typescript",
+					"python",
+					"go",
+					"lua",
+					"json",
+					"html",
+					"css",
+					"vue",
+					"svelte",
+				},
 				ignore_filetypes = { "markdown" },
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 2000,
+				timeout_ms = 5000,
 			},
 		})
 
@@ -39,7 +48,7 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 2000,
+				timeout_ms = 5000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 
