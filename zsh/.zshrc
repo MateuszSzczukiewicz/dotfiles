@@ -1,10 +1,6 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
@@ -60,11 +56,12 @@ _fzf_comprun() {
   esac
 }
 
+eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(thefuck --alias fk)"
 eval "$(tmuxifier init -)"
 
-alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions -all"
+alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 source ~/fzf-git.sh/fzf-git.sh

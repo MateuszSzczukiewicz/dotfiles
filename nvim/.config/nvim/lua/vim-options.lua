@@ -18,13 +18,5 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
-vim.keymap.set("v", "<C-c>", '"+y', { desc = "Copy to system clipboard" })
-vim.keymap.set("v", "<C-x>", '"+d', { desc = "Cut to system clipboard" })
-vim.keymap.set("n", "<C-v>", '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set("v", "<C-v>", '"+p', { desc = "Paste from system clipboard" })
-
-vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all" })
-vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select all" })
-
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true

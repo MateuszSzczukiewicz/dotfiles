@@ -1,19 +1,17 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "modules-left": [
-    "hyprland/workspaces",
-    "custom/left-section-separator"
+    "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/right-section-separator",
-    "network",
-    "pulseaudio",
-    "clock#date",
+    //"network",
+    //"pulseaudio",
+    //"clock#date",
     "clock#time"
   ],
   "hyprland/workspaces": {
-    "format": "{name}"
+    "format": "{name} "
   },
   "network": {
     "format-wifi": "<span size='13000'>  </span>{essid}",
@@ -33,7 +31,7 @@
     }
   },
   "clock#time": {
-    "format": "<span>  </span>{:%H:%M}",
+    "format": "{:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "clock#date": {
