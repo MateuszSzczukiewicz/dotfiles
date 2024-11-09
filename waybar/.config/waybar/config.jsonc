@@ -5,43 +5,12 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    //"network",
-    //"pulseaudio",
-    //"clock#date",
     "clock#time"
   ],
   "hyprland/workspaces": {
     "format": "{name} "
   },
-  "network": {
-    "format-wifi": "<span size='13000'>  </span>{essid}",
-    "format-ethernet": "<span size='13000'>󰤭  </span> Disconnected",
-    "format-disconnected": "<span size='13000'> </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " ",
-    "format-icons": {
-      "default": [
-        "",
-        " ",
-        " "
-      ]
-    }
-  },
-  "clock#time": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-  "clock#date": {
-    "format": "<span>󰃭 </span>{:%a %d.%m}",
-    "tooltip": "false"
-  },
-  "custom/left-section-separator": {
-    "format": ""
-  },
-  "custom/right-section-separator": {
-    "format": ""
+  "clock": {
+    "format": "{:%H:%M}"
   }
 }
