@@ -62,7 +62,7 @@ return {
         vim.keymap.set("n", "gt", "<cmd>telescope lsp_type_definitions<cr>", opts)
         vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-        vim.keymap.set("n", "<leader>d", "<cmd>telescope diagnostics bufnr=0<cr>", opts)
+        vim.keymap.set("n", "<leader>D", "<cmd>telescope diagnostics bufnr=0<cr>", opts)
         vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
         vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
         vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)

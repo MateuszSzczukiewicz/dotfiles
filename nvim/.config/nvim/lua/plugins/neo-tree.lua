@@ -7,7 +7,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    vim.keymap.set("n", "<leader>e", ":Neotree toggle left<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-n>", ":Neotree toggle left<CR>", { noremap = true, silent = true })
 
     require("neo-tree").setup({
       close_if_last_window = true,

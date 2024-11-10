@@ -20,7 +20,7 @@ return {
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-    vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufReadPost" }, {
       group = lint_augroup,
       callback = function()
         lint.try_lint()
@@ -28,13 +28,24 @@ return {
     })
 
     vim.diagnostic.config({
-      virtual_text = false,
+      virtual_text = true,
       float = {
         source = "always",
         border = "rounded",
       },
       severity_sort = true,
+      underline = false,
     })
+
+    local function get_highlight_fg(group)
+      local hl = vim.api.nvim_get_hl_by_name(group, true)
+      return hl and hl.foreground and string.format("#%06x", hl.foreground) or nil
+    end
+
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = get_highlight_fg("DiagnosticError"), bg = "none" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = get_highlight_fg("DiagnosticWarn"), bg = "none" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = get_highlight_fg("DiagnosticInfo"), bg = "none" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = get_highlight_fg("DiagnosticHint"), bg = "none" })
 
     vim.keymap.set("n", "<leader>n", function()
       vim.diagnostic.open_float(0, { scope = "buffer" })
