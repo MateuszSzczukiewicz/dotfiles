@@ -13,7 +13,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "ts_ls",
-          "lua_ls",
           "volar",
           "cssls",
           "emmet_ls",
@@ -65,6 +64,7 @@ return {
 
       local servers = {
         lua_ls = {
+          cmd = { "/run/current-system/sw/bin/lua-language-server" },
           settings = {
             Lua = {
               diagnostics = {
