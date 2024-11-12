@@ -42,43 +42,36 @@ return {
       local lspconfig = require("lspconfig")
       local lspconfig_util = require("lspconfig.util")
 
-      vim.api.nvim_create_autocmd("bufwritepost", {
-        pattern = { "*.ts" },
-        callback = function()
-          vim.cmd("lsprestart")
-        end,
-      })
-
       local project_root = lspconfig_util.root_pattern("package.json", ".git")(vim.fn.expand("%:p"))
       local tsdk_path = project_root and (project_root .. "/node_modules/typescript/lib") or nil
 
       local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, silent = true }
 
-        vim.keymap.set("n", "gr", "<cmd>telescope lsp_references<cr>", opts)
-        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-        vim.keymap.set("n", "gd", "<cmd>telescope lsp_definitions<cr>", opts)
-        vim.keymap.set("n", "gi", "<cmd>telescope lsp_implementations<cr>", opts)
-        vim.keymap.set("n", "gt", "<cmd>telescope lsp_type_definitions<cr>", opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-        vim.keymap.set("n", "<leader>D", "<cmd>telescope diagnostics bufnr=0<cr>", opts)
-        vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-        vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-        vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-        vim.keymap.set("n", "<leader>rs", "<cmd>lsprestart<cr>", opts)
+        vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+        vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+        vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+        vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+        vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+        vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+        vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+        vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
       end
 
       local servers = {
         lua_ls = {
           settings = {
-            lua = {
+            Lua = {
               diagnostics = {
                 globals = { "vim" },
               },
               completion = {
-                callsnippet = "replace",
+                callSnippet = "Replace",
               },
             },
           },
@@ -89,12 +82,12 @@ return {
           settings = {
             typescript = {
               preferences = {
-                importmodulespecifier = "non-relative",
+                importModuleSpecifier = "non-relative",
               },
             },
             javascript = {
               preferences = {
-                importmodulespecifier = "non-relative",
+                importModuleSpecifier = "non-relative",
               },
             },
           },
@@ -113,18 +106,18 @@ return {
           settings = {
             typescript = {
               preferences = {
-                importmodulespecifier = "non-relative",
+                importModuleSpecifier = "non-relative",
               },
             },
             javascript = {
               preferences = {
-                importmodulespecifier = "non-relative",
+                importModuleSpecifier = "non-relative",
               },
             },
           },
           init_options = {
             vue = {
-              hybridmode = false,
+              hybridMode = false,
             },
             typescript = {
               tsdk = tsdk_path,
@@ -151,10 +144,10 @@ return {
         },
         svelte = {
           on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("bufwritepost", {
+            vim.api.nvim_create_autocmd("BufWritePost", {
               pattern = { "*.js", "*.ts" },
               callback = function(ctx)
-                client.notify("$/ondidchangetsorjsfile", { uri = ctx.match })
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
               end,
             })
           end,

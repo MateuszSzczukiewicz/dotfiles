@@ -1,46 +1,46 @@
-@define-color base #191724;
+@define-color base #000000;
 @define-color text #e0def4;
 @define-color pine #31748f;
 
 * {
-  font-size: 16px;
-  font-family: "MesloLGS Nerd Font";
-  min-height: 0;
+    font-size: 16px;
+    font-family: "MesloLGS Nerd Font";
+    min-height: 0;
 }
 
 window#waybar {
-  background-color: @base;
-  color: @text;
+    background-color: @base;
+    color: @text;
 }
 
 button:hover {
-  background: inherit;
-  box-shadow: none;
-  border: none;
-  font-weight: normal;
+    background: inherit;
+    box-shadow: none;
+    border: none;
+    font-weight: normal;
 }
 
 #workspaces {
-  padding-left: 5px;
+    padding-left: 5px;
 }
 
 #workspaces button {
-  padding: 0;
-  color: @text;
-  background-color: @base;
-  border: none;
-  border-radius: 0;
-  transition: none;
-  font-weight: bold;
+    padding: 0;
+    color: @text;
+    background-color: @base;
+    border: none;
+    border-radius: 0;
+    transition: none;
+    font-weight: bold;
 }
 
 #workspaces button.active {
-  color: @pine;
+    color: @pine;
 }
 
 #clock {
-  background-color: @base;
-  padding: 0 10px;
-  font-weight: bold;
-  color: @text;
+    background-color: @base;
+    padding: 0 10px;
+    font-weight: bold;
+    color: @text;
 }
