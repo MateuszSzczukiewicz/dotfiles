@@ -36,9 +36,6 @@ return {
     vim.cmd("highlight NormalFloat guibg=" .. base)
     vim.cmd("highlight Visual guibg=" .. darker_gray)
     vim.cmd("highlight Search guibg=" .. search_bg .. " guifg=" .. white)
-
-    vim.cmd("highlight HarpoonWindow guibg=" .. base)
-    vim.cmd("highlight HarpoonBorder guibg=" .. base)
     vim.cmd("highlight TelescopeNormal guibg=" .. base)
     vim.cmd("highlight TelescopeBorder guibg=" .. base)
   end,

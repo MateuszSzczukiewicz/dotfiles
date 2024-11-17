@@ -4,7 +4,6 @@ window {
     border-radius: 0px;
     border: 2px solid #eb6f92;
     color: #e0def4;
-    font-family: 'MesloLGS Nerd Font';
     font-size: 24px;
 }
 
@@ -12,10 +11,11 @@ window {
     margin: 5px;
     border-radius: 0px;
     border: none;
-    border-radius: 0px;;
+    border-radius: 0px;
+    ;
     color: #eb6f92;
     background-color: #26233a;
-    
+
 }
 
 #inner-box {
@@ -41,18 +41,20 @@ window {
     margin: 5px;
     border: none;
     color: #e0def4;
-} 
+}
 
 #entry:selected {
     background-color: #eb6f92;
     color: #191724;
-    border-radius: 0px;;
+    border-radius: 0px;
+    ;
     outline: none;
 }
 
 #entry:selected * {
     background-color: #eb6f92;
     color: #191724;
-    border-radius: 0px;;
+    border-radius: 0px;
+    ;
     outline: none;
 }

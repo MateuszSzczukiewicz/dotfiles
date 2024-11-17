@@ -45,15 +45,6 @@ return {
         "python",
       },
       auto_install = true,
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-w>",
-          node_incremental = "<C-w>",
-          scope_incremental = "<C-s>",
-          node_decremental = "<C-r>",
-        },
-      },
     })
 
     require("nvim-ts-autotag").setup({

@@ -23,6 +23,7 @@ return {
           "tailwindcss",
           "pyright",
           "gopls",
+          "clangd",
         },
         automatic_installation = true,
       })
@@ -134,6 +135,7 @@ return {
         jsonls = {},
         bashls = {},
         yamlls = {},
+        clangd = {},
         html = {},
         tailwindcss = {},
         pyright = { filetypes = { "python" } },

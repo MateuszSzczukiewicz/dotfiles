@@ -65,3 +65,4 @@ eval "$(tmuxifier init -)"
 alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 source ~/fzf-git.sh/fzf-git.sh
+export PATH="$HOME/.local/bin:$PATH"

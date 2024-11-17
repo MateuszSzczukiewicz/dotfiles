@@ -34,7 +34,7 @@ return {
         border = "rounded",
       },
       severity_sort = true,
-      underline = false,
+      underline = true,
     })
 
     local function get_highlight_fg(group)
