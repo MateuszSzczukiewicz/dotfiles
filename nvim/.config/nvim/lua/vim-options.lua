@@ -26,4 +26,12 @@ vim.opt.updatetime = 50
 vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
 
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { noremap = true, silent = true })
+local clear_messages = function()
+  vim.defer_fn(function()
+    vim.cmd("echo ''")
+  end, 3000) -- 3 sekundy
+end
+
+vim.api.nvim_create_autocmd({ "BufWritePost", "CmdlineLeave", "ModeChanged" }, {
+  callback = clear_messages,
+})

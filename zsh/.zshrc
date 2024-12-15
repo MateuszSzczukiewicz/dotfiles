@@ -1,7 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-
 plugins=(
   git
   zsh-syntax-highlighting
@@ -66,3 +64,8 @@ alias eza="eza --color=always --long --git --no-filesize --icons=always --no-tim
 
 source ~/fzf-git.sh/fzf-git.sh
 export PATH="$HOME/.local/bin:$PATH"
+
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+export PGPASSWORD='qwebnm123@'
+alias sp-pg='pgcli -h 91.108.113.22 -p 5432 -U postgres -d spineTime'
