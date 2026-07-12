@@ -15,35 +15,34 @@ opt.relativenumber = true -- Show relative line numbers
 opt.numberwidth = 2 -- Width of the line number column
 opt.wrap = false -- Disable line wrapping
 opt.scrolloff = 8 -- Keep 8 lines above and below the cursor
-opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- Directory for undo files
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Directory for undo files
 opt.undofile = true -- Enable persistent undo
 
 vim.g.netrw_liststyle = 1 -- Long listing view
 vim.g.netrw_banner = 0 -- Remove the upper banner
-vim.g.netrw_localcopydircmd = 'cp -r'
+vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_keepdir = 0 -- Keep cwd in sync with netrw directory
 vim.g.netrw_fastbrowse = 0 -- Reuse netrw buffers
 vim.g.netrw_hide = 1 -- Enable hiding
-vim.g.netrw_list_hide = '^\\./$,^\\.\\./$' -- Hide . and .. entries
-vim.g.netrw_sort_by = 'name'
+vim.g.netrw_list_hide = "^\\./$,^\\.\\./$" -- Hide . and .. entries
+vim.g.netrw_sort_by = "name"
 
 vim.opt.hidden = true
-vim.opt.switchbuf = 'useopen,uselast'
-vim.opt.wildmode = 'longest:full,full'
-vim.opt.wildoptions = 'pum,fuzzy'
-vim.opt.wildignore = '*.o,*.obj,*.bin,*.dll,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.zip,*.tar.gz,*.tar,*.pdf,*.tags,*.taghl'
+vim.opt.switchbuf = "useopen,uselast"
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildoptions = "pum,fuzzy"
+vim.opt.wildignore =
+    "*.o,*.obj,*.bin,*.dll,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.zip,*.tar.gz,*.tar,*.pdf,*.tags,*.taghl"
 
-vim.opt.timeoutlen = 200 -- Time for multi-key maps (bracket pairs, leader combos)
+vim.opt.timeoutlen = 300 -- Time for multi-key maps (bracket pairs, leader combos)
 
-vim.opt.path:append('**') -- :find searches subdirectories
+vim.opt.path:append("**") -- :find searches subdirectories
 
 vim.diagnostic.config({
-    virtual_text = { spacing = 4, source = 'if_many' },
+    virtual_text = { spacing = 4, source = "if_many" },
     signs = true,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
     float = { focusable = false, source = true },
 })
-
-vim.cmd.colorscheme("gruber-darker")
