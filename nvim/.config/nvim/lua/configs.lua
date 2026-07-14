@@ -34,8 +34,6 @@ vim.opt.wildoptions = "pum,fuzzy"
 vim.opt.wildignore =
     "*.o,*.obj,*.bin,*.dll,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.zip,*.tar.gz,*.tar,*.pdf,*.tags,*.taghl"
 
-vim.opt.timeoutlen = 300 -- Time for multi-key maps (bracket pairs, leader combos)
-
 vim.opt.path:append("**") -- :find searches subdirectories
 
 vim.diagnostic.config({
