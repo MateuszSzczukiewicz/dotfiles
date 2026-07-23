@@ -1,3 +1,25 @@
+-- LSP installation methods:
+-- ruff        -> mise use -g aqua:astral-sh/ruff
+-- vtsls       -> mise use -g npm:@vtsls/language-server
+-- bashls      -> mise use -g npm:bash-language-server
+-- gopls       -> mise use -g go:golang.org/x/tools/gopls
+-- lua_ls      -> mise use -g lua-language-server
+-- zls         -> mise use -g zls
+-- efm         -> mise use -g go:github.com/mattn/efm-langserver
+-- helm_ls     -> mise use -g go:github.com/mrjosh/helm-ls
+-- texlab      -> sudo xbps-install -Sy texlab
+-- clangd      -> sudo xbps-install -Sy clang-tools-extra
+-- bacon_ls    -> cargo install bacon-ls
+-- vhdl_ls     -> cargo install vhdl_ls
+-- ruby_lsp    -> gem install ruby-lsp
+-- metals      -> cs install metals
+-- clojure_lsp -> download from github.com/clojure-lsp/clojure-lsp
+-- phpactor    -> download phpactor.phar from github.com/phpactor/phpactor
+-- jdtls       -> download from download.eclipse.org/jdtls/snapshots/
+-- csharp_ls   -> dotnet tool install -g csharp-ls
+-- elixirls    -> mise install aqua:elixir-lsp/elixir-ls
+-- scheme_langserver -> download from github.com/ufo5260987423/scheme-langserver
+
 require("lspconfig")
 
 vim.lsp.config("efm", {

@@ -16,6 +16,7 @@ keymap("x", "y", [["+y]], s)
 keymap("t", "<Esc>", "<C-\\><C-N>")
 keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 keymap("n", "<leader>ps", "<cmd>lua vim.pack.update()<CR>")
+keymap("n", "<Leader>F", "<cmd>lua vim.lsp.buf.format()<CR>", s)
 keymap("n", "<Leader>e", "<cmd>Ex %:p:h<CR>")
 
 -- Vinegar-style '-' : open netrw at current dir, or go up if already in netrw

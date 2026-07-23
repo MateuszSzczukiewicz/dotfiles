@@ -1,0 +1,11 @@
+#!/bin/sh
+ALACRITTY_CONFIG="$HOME/.config/alacritty/alacritty.toml"
+
+case "$AUTORANDR_CURRENT_PROFILE" in
+    laptop)
+        sed -i 's/^size = .*/size = 14/' "$ALACRITTY_CONFIG"
+        ;;
+    docked)
+        sed -i 's/^size = .*/size = 28/' "$ALACRITTY_CONFIG"
+        ;;
+esac
