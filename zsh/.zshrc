@@ -12,13 +12,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export GTK_THEME=Adwaita:dark
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-export MOZ_ENABLE_WAYLAND=1
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export QT_QPA_PLATFORM=wayland
-export GDK_BACKEND=wayland
+# zakomentowane bo dzialamy na i3 (X11), nie Wayland
+# export MOZ_ENABLE_WAYLAND=1
+# export ELECTRON_OZONE_PLATFORM_HINT=wayland
+# export QT_QPA_PLATFORM=wayland
+# export GDK_BACKEND=wayland
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
@@ -135,5 +138,7 @@ eval "$(mise activate zsh)"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 [ -f "/home/alto64/.ghcup/env" ] && . "/home/alto64/.ghcup/env"
-. "$HOME/.local/share/../bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/coursier/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
