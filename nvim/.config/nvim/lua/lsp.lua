@@ -1,63 +1,32 @@
-require("lspconfig")
+vim.pack.add({ { src = "https://github.com/neovim/nvim-lspconfig" } })
 
-vim.lsp.config("efm", {
-    filetypes = { "python" },
-    init_options = { documentFormatting = false },
-    settings = {
-        languages = {
-            python = {
-                {
-                    lintCommand = "mypy --show-column-numbers --show-error-codes --no-error-summary --no-color-output ${INPUT}",
-                    lintFormats = {
-                        "%f:%l:%c: %trror: %m",
-                        "%f:%l:%c: %tarning: %m",
-                        "%f:%l:%c: %tote: %m",
-                    },
-                    lintSource = "mypy",
-                    lintIgnoreExitCode = true,
-                },
-            },
-        },
-    },
+vim.cmd.packadd("nvim-lspconfig")
+
+vim.diagnostic.config({ virtual_text = true })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client ~= nil and client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+		end
+	end,
 })
 
-vim.lsp.config("clangd", {
-    cmd = {
-        "clangd",
-        "--query-driver=" .. vim.fn.expand("~") .. "/workspace/gitlab.pw-sat.pl/oryx-toolchain/bin/*",
-    },
+vim.cmd("set completeopt+=noselect")
+
+vim.lsp.config("rust_analyzer", {
+	cmd = { "rust-analyzer" },
+	filetypes = { "rust" },
+	root_markers = { "Cargo.toml" },
+	settings = {
+		["rust-analyzer"] = {
+			cargo = { allFeatures = true },
+			check = {
+				command = "clippy",
+			},
+		},
+	},
 })
 
-vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            runtime = { version = "LuaJIT" },
-            workspace = {
-                checkThirdParty = false,
-                library = { vim.env.VIMRUNTIME },
-            },
-            diagnostics = { globals = { "vim" } },
-        },
-    },
-})
-
-vim.lsp.enable("ruff")
-vim.lsp.enable("efm")
-vim.lsp.enable("vtsls")
-vim.lsp.enable("gopls")
-vim.lsp.enable("bacon_ls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("bashls")
-vim.lsp.enable("zls")
-vim.lsp.enable("texlab")
-vim.lsp.enable("helm_ls")
-vim.lsp.enable("jdtls")
-vim.lsp.enable("csharp_ls")
-vim.lsp.enable("elixirls")
-vim.lsp.enable("ruby_lsp")
-vim.lsp.enable("metals")
-vim.lsp.enable("clojure_lsp")
-vim.lsp.enable("phpactor")
-vim.lsp.enable("scheme_langserver")
-vim.lsp.enable("vhdl_ls")
+vim.lsp.enable("rust_analyzer")

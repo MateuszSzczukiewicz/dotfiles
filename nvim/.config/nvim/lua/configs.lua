@@ -1,4 +1,9 @@
 local opt = vim.opt
+local g = vim.g
+local diagnostic = vim.diagnostic
+
+g.mapleader = " "
+opt.termguicolors = true
 opt.guicursor = "i:block" -- Use block cursor in insert mode
 opt.signcolumn = "yes:1" -- Always show sign column
 opt.termguicolors = true -- Enable true colors
@@ -18,25 +23,25 @@ opt.scrolloff = 8 -- Keep 8 lines above and below the cursor
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Directory for undo files
 opt.undofile = true -- Enable persistent undo
 
-vim.g.netrw_liststyle = 1 -- Long listing view
-vim.g.netrw_banner = 0 -- Remove the upper banner
-vim.g.netrw_localcopydircmd = "cp -r"
-vim.g.netrw_keepdir = 0 -- Keep cwd in sync with netrw directory
-vim.g.netrw_fastbrowse = 0 -- Reuse netrw buffers
-vim.g.netrw_hide = 1 -- Enable hiding
-vim.g.netrw_list_hide = "^\\./$,^\\.\\./$" -- Hide . and .. entries
-vim.g.netrw_sort_by = "name"
+g.netrw_liststyle = 1 -- Long listing view
+g.netrw_banner = 0 -- Remove the upper banner
+g.netrw_localcopydircmd = "cp -r"
+g.netrw_keepdir = 0 -- Keep cwd in sync with netrw directory
+g.netrw_fastbrowse = 0 -- Reuse netrw buffers
+g.netrw_hide = 1 -- Enable hiding
+g.netrw_list_hide = "^\\./$,^\\.\\./$" -- Hide . and .. entries
+g.netrw_sort_by = "name"
 
-vim.opt.hidden = true
-vim.opt.switchbuf = "useopen,uselast"
-vim.opt.wildmode = "longest:full,full"
-vim.opt.wildoptions = "pum,fuzzy"
-vim.opt.wildignore =
+opt.hidden = true
+opt.switchbuf = "useopen,uselast"
+opt.wildmode = "longest:full,full"
+opt.wildoptions = "pum,fuzzy"
+opt.wildignore =
     "*.o,*.obj,*.bin,*.dll,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.zip,*.tar.gz,*.tar,*.pdf,*.tags,*.taghl"
 
-vim.opt.path:append("**") -- :find searches subdirectories
+opt.path:append("**") -- :find searches subdirectories
 
-vim.diagnostic.config({
+diagnostic.config({
     virtual_text = { spacing = 4, source = "if_many" },
     signs = true,
     underline = true,
