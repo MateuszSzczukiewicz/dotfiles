@@ -4,3 +4,6 @@ size = 14
 [font.normal]
 family = "Iosevka"
 style = "Regular"
+
+[cursor]
+hide_when_typing = true
