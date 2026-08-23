@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 require("options")
+require("treesitter")
 require("lsp")
 require("formatting")
 require("colorscheme")

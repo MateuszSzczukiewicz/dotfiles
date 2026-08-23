@@ -130,6 +130,27 @@ alias gcad='git commit -a --amend'
 alias wo="pomodoro work"
 alias br="pomodoro break"
 
+# kursor znika przy pisaniu
+zmodload zsh/sched
+autoload -Uz add-zle-hook-widget add-zsh-hook
+typeset -gH _cursor_sched=0
+
+_cursor_show() {
+  printf '\e[?25h'
+  local id=$_cursor_sched
+  _cursor_sched=0
+  (( id )) && scheddel "$id" 2>/dev/null
+}
+
+_cursor_hide_on_type() {
+  printf '\e[?25l'
+  (( _cursor_sched )) && scheddel "$_cursor_sched" 2>/dev/null
+  _cursor_sched=$(sched +0:00:01 _cursor_show)
+}
+
+add-zle-hook-widget line-pre-redraw _cursor_hide_on_type
+add-zsh-hook precmd _cursor_show
+
 eval "$(zoxide init zsh)"
 eval "$(opam env)"
 eval "$(thefuck --alias)"
