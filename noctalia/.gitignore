@@ -1,0 +1,5 @@
+# Noctalia GUI override file lives here through a symlink from
+# ~/.local/state/noctalia/settings.toml and is tracked on purpose.
+# Ignore anything else that might end up in this tree (defensive).
+.local/state/noctalia/*
+!.local/state/noctalia/settings.toml

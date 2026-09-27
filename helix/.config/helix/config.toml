@@ -1,0 +1,89 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = false
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+cursorcolumn = false
+true-color = true
+rulers = [100, 120]
+auto-save = false
+idle-timeout = 50
+completion-timeout = 5
+preview-completion-insert = true
+completion-trigger-len = 2
+statusline = { left = ["mode", "spinner", "file-name", "file-modification-indicator"], right = ["diagnostics", "selections", "register", "position-percentage", "position", "file-encoding", "file-type"] }
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+display-signature-help-docs = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+
+[editor.search]
+smart-case = true
+
+[editor.whitespace]
+render = "all"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.gutters]
+layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+
+[editor.gutters.line-numbers]
+min-width = 3
+
+[keys.normal]
+C-s = ":w"
+C-q = ":q"
+C-x = ":wq"
+A-j = ["move_line_down", "normal_mode"]
+A-k = ["move_line_up", "normal_mode"]
+C-j = ["move_line_down", "normal_mode"]
+C-k = ["move_line_up", "normal_mode"]
+
+[keys.insert]
+C-s = ":w"
+C-j = ["move_line_down", "insert_mode"]
+C-k = ["move_line_up", "insert_mode"]
+
+[keys.insert.j]
+k = "normal_mode"
+
+[keys.normal.space]
+f = "file_picker"
+b = "buffer_picker"
+s = "symbol_picker"
+g = "global_search"
+d = "diagnostics_picker"
+r = "rename_symbol"
+a = "code_action"
+w = ":w"
+q = ":q"

@@ -1,6 +1,29 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
 [font]
-size = 14
+size = 21.5
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Nerd Font"
 style = "Regular"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
