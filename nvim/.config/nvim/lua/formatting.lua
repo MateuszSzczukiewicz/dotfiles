@@ -7,6 +7,9 @@ M.formatters = {
 	typescriptreact = "prettier --stdin-filepath %",
 	json = "prettier --stdin-filepath %",
 	rust = "rustfmt --emit stdout",
+	python = "ruff format -",
+	c = "clang-format --assume-filename=%",
+	cpp = "clang-format --assume-filename=%",
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {

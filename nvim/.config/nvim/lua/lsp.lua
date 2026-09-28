@@ -15,6 +15,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.cmd("set completeopt+=noselect")
 
+vim.lsp.config("ruff", {
+	cmd = { "ruff", "server" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+})
+
+vim.lsp.enable("ruff")
+
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--compile-commands-dir=build",
+		"--background-index",
+		"--completion-style=detailed",
+		"--header-insertion=never",
+		"--all-scopes-completion",
+		"--cross-file-rename",
+		"--enable-config", -- reads .clangd files
+	},
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+	root_markers = { ".clangd", ".clang-format", "compile_commands.json", "compile_flags.txt", ".git" },
+})
+
+vim.lsp.enable("clangd")
+
 vim.lsp.config("rust_analyzer", {
 	cmd = { "rust-analyzer" },
 	filetypes = { "rust" },
